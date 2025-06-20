@@ -8,7 +8,7 @@ import productsIcon from '../assets/product.jpg';
 export function About() {
   return (
     <section 
-      className="min-h-screen pt-24 flex items-center relative overflow-hidden bg-gray-900"
+      className="min-h-screen pt-10 flex items-center relative overflow-hidden bg-gray-900"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -17,7 +17,7 @@ export function About() {
       }}
     >
       {/* Gradient overlay with animated particles */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/60 to-gray-900/80"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/60 to-gray-900/80"></div>
       
       {/* Animated particles background */}
       <div className="absolute inset-0 overflow-hidden">

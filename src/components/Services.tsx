@@ -99,14 +99,14 @@ const clientServices = [
   { 
     id: "iot",
     icon: Wifi, 
-    title: "Internet of Things Solution Devices", 
+    title: "IOT Solution Devices", 
     description: "End-to-end IoT solutions for smart connectivity",
     image: educationImg
   },
   { 
     id: "homeAutomation",
     icon: Home, 
-    title: "Home Automation Products", 
+    title: "Home Automations", 
     description: "Transform your home with intelligent automation",
     image: homeImg
   },
@@ -128,16 +128,16 @@ const studentPrograms = [
     duration: "5 days intensive",
     outcome: "Certificate + Real Projects",
     image: sclImg,
-    formLink: "#"
+    formLink: "https://forms.gle/mf1Ehd7saXDbGwUz6"
   },
   {
     title: "College Programs",
     icon: GraduationCap,
     focus: "College students",
     duration: "Flexible schedules",
-    outcome: "Project Guidance + Internships",
+    outcome: "Projects + Internships",
     image: clgImg,
-    formLink: "#"
+    formLink: "https://forms.gle/owSFsAusKeQQBzki9"
   }
 ];
 
@@ -164,17 +164,16 @@ export function Services() {
   };
 
   return (
-    <section className="min-h-screen py-24 relative overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={backgroundImg} 
-          alt="Background" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/80" />
-      </div>
+    <section 
+      id="contact" 
+      className="min-h-screen py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(rgba(10, 18, 37, 0.9), rgba(15, 23, 42, 0.9)), url(${backgroundImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
 
       {/* Service Details Modal */}
       {isModalOpen && selectedService && (

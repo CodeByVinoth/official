@@ -1,5 +1,4 @@
-import { useState, useRef } from 'react';
-import { Mail, Phone, Instagram, FileText } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -7,42 +6,64 @@ import { Services } from './components/Services';
 import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { Careers } from './components/Careers'; // Make sure this matches your file name
+import { Careers } from './components/Careers';
 
 function App() {
   const [currentSection, setCurrentSection] = useState<string>('hero');
+
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const careersRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
-  const careersRef = useRef<HTMLDivElement>(null); // Fixed spelling to match component name
+
+  const sectionRefs = {
+    hero: heroRef,
+    about: aboutRef,
+    services: servicesRef,
+    projects: projectsRef,
+    careers: careersRef,
+    contact: contactRef,
+  };
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>, section: string) => {
     setCurrentSection(section);
     ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY + window.innerHeight / 3;
+
+      Object.entries(sectionRefs).forEach(([section, ref]) => {
+        const el = ref.current;
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            setCurrentSection(section);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header 
+      <Header
         onNavClick={(section) => {
-          setCurrentSection(section);
-          const refs = {
-            'hero': heroRef,
-            'about': aboutRef,
-            'services': servicesRef,
-            'projects': projectsRef,
-            'contact': contactRef,
-            'careers': careersRef // Fixed to match the section key
-          };
-          refs[section as keyof typeof refs]?.current?.scrollIntoView({ behavior: 'smooth' });
-        }} 
-        currentSection={currentSection} 
+          const ref = sectionRefs[section as keyof typeof sectionRefs];
+          if (ref) scrollToSection(ref, section);
+        }}
+        currentSection={currentSection}
       />
 
       <div ref={heroRef}>
-        <Hero 
+        <Hero
           onContactClick={() => scrollToSection(contactRef, 'contact')}
           onExploreClick={() => scrollToSection(servicesRef, 'services')}
           onAboutClick={() => scrollToSection(aboutRef, 'about')}

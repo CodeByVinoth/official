@@ -11,10 +11,11 @@ export function Header({ onNavClick, currentSection }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "Home" },
+    { id: "hero", label: "Home" },
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
     { id: "projects", label: "Projects" },
+    { id: "careers", label: "Careers" },
     { id: "contact", label: "Contact" },
   ];
 

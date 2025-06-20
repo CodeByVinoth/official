@@ -18,7 +18,7 @@ export function Hero({ onContactClick, onExploreClick, onAboutClick }: HeroProps
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60" />
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
       </motion.div>
 
       {/* Content */}

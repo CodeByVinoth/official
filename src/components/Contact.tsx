@@ -25,15 +25,9 @@ const contactItems = [
   { 
     icon: MapPin, 
     text: "Marathahalli, Bengaluru", 
-    href: "https://maps.google.com?q=Marathahalli+Bengaluru",
     color: "bg-gradient-to-r from-blue-500 to-cyan-600"
   },
-  { 
-    icon: FileText, 
-    text: "Order Your Project", 
-    href: "https://docs.google.com/forms/d/e/1FAIpQLSfA23HZlOoZygLTEbNKN8MXtmRN3G8OoNsTreEXnkKwkDNk8Q/viewform",
-    color: "bg-gradient-to-r from-yellow-500 to-amber-600"
-  }
+  
 ];
 
 export function Contact() {
@@ -66,7 +60,7 @@ export function Contact() {
       id="contact" 
       className="min-h-screen py-20 relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url(${bgImage})`,
+        backgroundImage: `linear-gradient(rgba(10, 18, 37, 0.9), rgba(15, 23, 42, 0.9)), url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
